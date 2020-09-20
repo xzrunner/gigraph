@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\external\PathTracer\Mesh.h" />
+    <ClInclude Include="..\..\..\external\RadeonRays\bbox.h" />
+    <ClInclude Include="..\..\..\external\RadeonRays\bvh.h" />
+    <ClInclude Include="..\..\..\external\RadeonRays\bvh_translator.h" />
+    <ClInclude Include="..\..\..\external\RadeonRays\split_bvh.h" />
+    <ClInclude Include="..\..\..\include\gigraph\AssetsFactory.h" />
+    <ClInclude Include="..\..\..\include\gigraph\CompHelper.h" />
+    <ClInclude Include="..\..\..\include\gigraph\Component.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Camera.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Camera.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Light.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Light.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Material.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Material.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Merge.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Merge.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Mesh.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Mesh.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Scene.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Scene.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Transform.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Transform.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\Evaluator.h" />
+    <ClInclude Include="..\..\..\include\gigraph\GIGraph.h" />
+    <ClInclude Include="..\..\..\include\gigraph\node_include_gen.h" />
+    <ClInclude Include="..\..\..\include\gigraph\node_regist_cfg.h" />
+    <ClInclude Include="..\..\..\include\gigraph\node_rttr_gen.h" />
+    <ClInclude Include="..\..\..\include\gigraph\Param.h" />
+    <ClInclude Include="..\..\..\include\gigraph\ParamImpl.h" />
+    <ClInclude Include="..\..\..\include\gigraph\ParamType.h" />
+    <ClInclude Include="..\..\..\include\gigraph\typedef.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\external\PathTracer\Mesh.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)/pathtracer/</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)/pathtracer/</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\RadeonRays\bbox.cpp" />
+    <ClCompile Include="..\..\..\external\RadeonRays\bvh.cpp" />
+    <ClCompile Include="..\..\..\external\RadeonRays\bvh_translator.cpp" />
+    <ClCompile Include="..\..\..\external\RadeonRays\split_bvh.cpp" />
+    <ClCompile Include="..\..\..\source\AssetsFactory.cpp" />
+    <ClCompile Include="..\..\..\source\component\CompHelper.cpp" />
+    <ClCompile Include="..\..\..\source\component\Mesh.cpp" />
+    <ClCompile Include="..\..\..\source\component\Scene.cpp" />
+    <ClCompile Include="..\..\..\source\Evaluator.cpp" />
+    <ClCompile Include="..\..\..\source\GIGraph.cpp" />
+    <ClCompile Include="..\..\..\source\RegistRTTR.cpp" />
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectName>gigraph</ProjectName>
+    <ProjectGuid>{82072E06-AA6F-4601-A163-99C0996EFF0F}</ProjectGuid>
+    <RootNamespace>gigraph</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.26730.12</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>..\gigraph\x86\Debug\</OutDir>
+    <IntDir>..\gigraph\x86\Debug\obj\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>..\gigraph\x86\Release\</OutDir>
+    <IntDir>..\gigraph\x86\Release\obj\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\external;..\..\..\..\cu\src;..\..\..\..\sm\src\sm;..\..\..\..\dag\include;..\..\..\..\lexer\include;..\..\..\..\cslang\include;..\..\..\..\guard\include;..\..\..\..\cpputil\include;..\..\..\..\unirender\include;..\..\..\..\external\rttr\include;..\..\..\..\external\boost\include;..\..\..\..\external\tinyobjloader\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\external;..\..\..\..\cu\src;..\..\..\..\sm\src\sm;..\..\..\..\dag\include;..\..\..\..\lexer\include;..\..\..\..\cslang\include;..\..\..\..\guard\include;..\..\..\..\cpputil\include;..\..\..\..\unirender\include;..\..\..\..\external\rttr\include;..\..\..\..\external\boost\include;..\..\..\..\external\tinyobjloader\include</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

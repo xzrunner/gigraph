@@ -1,0 +1,180 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="dataset">
+      <UniqueIdentifier>{390befc0-68e9-480b-a827-295ae3039d42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components">
+      <UniqueIdentifier>{1ff98041-2132-4a6e-a6be-8c71fcfa90b0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tools">
+      <UniqueIdentifier>{b1cd2ec4-95d8-4f0c-95e3-d5ab5e2d5f7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dataset\component">
+      <UniqueIdentifier>{5b00c781-8799-4ec1-a6e3-6024d305f42e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dataset\param">
+      <UniqueIdentifier>{eee35cea-1ffa-460a-bec9-390f108fcf3a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external">
+      <UniqueIdentifier>{2f52f61a-3e6a-4e97-b231-13846c1a34ae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\RadeonRays">
+      <UniqueIdentifier>{ed61232c-d959-4474-98d6-7bf76c45e4ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="external\PathTracer">
+      <UniqueIdentifier>{4f9f608d-93e4-4b9f-9f68-a65ae7756d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tools\rtti">
+      <UniqueIdentifier>{839e9b82-35ae-434c-8346-042bbd40b5c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\operator">
+      <UniqueIdentifier>{b7ac1770-317b-4821-bbe5-b4a5104246cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\object">
+      <UniqueIdentifier>{7034dced-ad27-49ad-b647-a2e0db4f9325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\render">
+      <UniqueIdentifier>{6e65eaaa-d6e9-4e18-847f-5a21cf06af46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\tool">
+      <UniqueIdentifier>{7d09c39e-675c-4948-b240-552c4e7473f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="tools\eval">
+      <UniqueIdentifier>{39366ab9-d7ec-47e8-8f4c-6508edaca9a6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\..\include\gigraph\Component.h">
+      <Filter>dataset\component</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\ParamType.h">
+      <Filter>dataset\param</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\Param.h">
+      <Filter>dataset\param</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\ParamImpl.h">
+      <Filter>dataset\param</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\typedef.h" />
+    <ClInclude Include="..\..\..\external\RadeonRays\bbox.h">
+      <Filter>external\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\external\RadeonRays\bvh.h">
+      <Filter>external\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\external\RadeonRays\bvh_translator.h">
+      <Filter>external\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\external\RadeonRays\split_bvh.h">
+      <Filter>external\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\external\PathTracer\Mesh.h">
+      <Filter>external\PathTracer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\node_include_gen.h">
+      <Filter>tools\rtti</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\node_regist_cfg.h">
+      <Filter>tools\rtti</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\node_rttr_gen.h">
+      <Filter>tools\rtti</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\GIGraph.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Camera.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Camera.parm.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Light.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Light.parm.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Material.parm.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Material.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Mesh.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Mesh.parm.h">
+      <Filter>components\object</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Transform.h">
+      <Filter>components\operator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Transform.parm.h">
+      <Filter>components\operator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Merge.h">
+      <Filter>components\operator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Merge.parm.h">
+      <Filter>components\operator</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.h">
+      <Filter>components\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Scene.parm.h">
+      <Filter>components\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Scene.h">
+      <Filter>components\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h">
+      <Filter>components\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\AssetsFactory.h">
+      <Filter>tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\CompHelper.h">
+      <Filter>tools</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\Evaluator.h">
+      <Filter>tools\eval</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\external\RadeonRays\bbox.cpp">
+      <Filter>external\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\RadeonRays\bvh.cpp">
+      <Filter>external\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\RadeonRays\bvh_translator.cpp">
+      <Filter>external\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\RadeonRays\split_bvh.cpp">
+      <Filter>external\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\external\PathTracer\Mesh.cpp">
+      <Filter>external\PathTracer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\RegistRTTR.cpp">
+      <Filter>tools\rtti</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\GIGraph.cpp" />
+    <ClCompile Include="..\..\..\source\component\Mesh.cpp">
+      <Filter>components\object</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\AssetsFactory.cpp">
+      <Filter>tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\component\Scene.cpp">
+      <Filter>components\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\component\CompHelper.cpp">
+      <Filter>tools</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\Evaluator.cpp">
+      <Filter>tools\eval</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

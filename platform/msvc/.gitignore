@@ -1,0 +1,5 @@
+gigraph/
+projects/*
+
+!projects/gigraph.vcxproj
+!projects/gigraph.vcxproj.filters
