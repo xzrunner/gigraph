@@ -140,6 +140,9 @@
     <ClInclude Include="..\..\..\include\gigraph\Evaluator.h">
       <Filter>tools\eval</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\RenderContext.h">
+      <Filter>dataset</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\external\RadeonRays\bbox.cpp">

@@ -1,6 +1,10 @@
 #include "gigraph/component/Scene.h"
 #include "gigraph/ParamImpl.h"
 #include "gigraph/CompHelper.h"
+#include "gigraph/RenderContext.h"
+
+#include <unirender/Device.h>
+#include <unirender/TextureDescription.h>
 
 #include <PathTracer/Mesh.h>
 
@@ -21,7 +25,9 @@ void Scene::Execute(const std::shared_ptr<dag::Context>& ctx)
 	assert(param->Type() == ParamType::Meshes);
     BuildBVH(*std::static_pointer_cast<MultiMeshesParam>(param));
 
-    BuildTextures();
+    auto rc = std::dynamic_pointer_cast<RenderContext>(ctx);
+    assert(rc);
+    BuildTextures(*rc);
 }
 
 void Scene::BuildBVH(const MultiMeshesParam& param)
@@ -114,20 +120,44 @@ void Scene::BuildBVH(const MultiMeshesParam& param)
     //}
 }
 
-void Scene::BuildTextures()
+void Scene::BuildTextures(const RenderContext& rc)
 {
-    ////Create texture for Bounding boxes
-    //glGenTextures(1, &BBoxminTex);
-    //glBindTexture(GL_TEXTURE_2D, BBoxminTex);
-    //glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB32F, scene->bvhTranslator.nodeTexWidth, scene->bvhTranslator.nodeTexWidth, 0, GL_RGB, GL_FLOAT, &scene->bvhTranslator.bboxmin[0]);
-    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST);
-    //glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_NEAREST);
-    //glBindTexture(GL_TEXTURE_2D, 0);
+    m_vals.resize(m_exports.size());
 
-    m_vals.resize(5);
+    ur::TextureDescription desc;
+    desc.width  = m_bvh_translator.nodeTexWidth;
+    desc.height = m_bvh_translator.nodeTexWidth;
+    desc.sampler_type = ur::Device::TextureSamplerType::NearestClamp;
 
-    auto bbox_min_tex = std::make_shared<TextureParam>();
-    m_vals[0] = bbox_min_tex;
+    // bvh texture
+    desc.format = ur::TextureFormat::RGB32I;
+    m_vals[O_BVH] = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_bvh_translator.nodes[0])
+    );
+
+    // bbox
+    desc.format = ur::TextureFormat::RGB32F;
+    m_vals[O_BBoxMin] = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_bvh_translator.bboxmin[0])
+    );
+    m_vals[O_BBoxMax] = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_bvh_translator.bboxmax[0])
+    );
+
+    // vertex indices
+    desc.format = ur::TextureFormat::RGB32I;
+    m_vals[O_VertexIndices] = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_vert_indices[0])
+    );
+
+    // vertices + normals
+    desc.format = ur::TextureFormat::RGBA32F;
+    m_vals[O_Vertices] = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_vertices_uvx[0])
+    );
+    m_vals[O_Normals]  = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_normals_uvy[0])
+    );
 }
 
 void Scene::CreateBLAS(const std::vector<std::shared_ptr<GLSLPT::Mesh>>& meshes)

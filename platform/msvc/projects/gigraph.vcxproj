@@ -43,6 +43,7 @@
     <ClInclude Include="..\..\..\include\gigraph\Param.h" />
     <ClInclude Include="..\..\..\include\gigraph\ParamImpl.h" />
     <ClInclude Include="..\..\..\include\gigraph\ParamType.h" />
+    <ClInclude Include="..\..\..\include\gigraph\RenderContext.h" />
     <ClInclude Include="..\..\..\include\gigraph\typedef.h" />
   </ItemGroup>
   <ItemGroup>

@@ -57,6 +57,8 @@ public:
 
 	virtual ParamType Type() const { return ParamType::Texture; }
 
+	auto GetTexture() const { return m_tex; }
+
 private:
 	ur::TexturePtr m_tex = nullptr;
 

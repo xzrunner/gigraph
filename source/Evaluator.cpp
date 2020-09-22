@@ -7,7 +7,8 @@
 namespace gigraph
 {
 
-void Evaluator::Rebuild(const std::vector<CompPtr>& comps)
+void Evaluator::Rebuild(const std::vector<CompPtr>& comps,
+                        const std::shared_ptr<dag::Context>& ctx)
 {
 	// sort
 
@@ -25,7 +26,7 @@ void Evaluator::Rebuild(const std::vector<CompPtr>& comps)
 
     // update
     for (auto& comp : sorted) {
-        comp->Execute();
+        comp->Execute(ctx);
     }
 }
 

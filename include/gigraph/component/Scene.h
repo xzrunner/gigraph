@@ -14,12 +14,24 @@ namespace gigraph
 
 struct MeshInstance;
 class MultiMeshesParam;
+class RenderContext;
 
 namespace comp
 {
 
 class Scene : public Component
 {
+public:
+    enum OutputID
+    {
+        O_BVH,
+        O_BBoxMin,
+        O_BBoxMax,
+        O_VertexIndices,
+        O_Vertices,
+        O_Normals,
+    };
+
 public:
     Scene()
         : Component(1)
@@ -28,6 +40,7 @@ public:
             {{ ParamType::Meshes, "Meshes" }},
         };
         m_exports = {
+            {{ ParamType::Texture, "BVH" }},
             {{ ParamType::Texture, "BBoxMin" }},
             {{ ParamType::Texture, "BBoxMax" }},
             {{ ParamType::Texture, "VertexIndices" }},
@@ -42,7 +55,7 @@ public:
 
 private:
     void BuildBVH(const MultiMeshesParam& param);
-    void BuildTextures();
+    void BuildTextures(const RenderContext& rc);
 
     void CreateBLAS(const std::vector<std::shared_ptr<GLSLPT::Mesh>>& meshes);
     void CreateTLAS(const std::vector<MeshInstance>& meshes);
