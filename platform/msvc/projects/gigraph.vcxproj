@@ -19,10 +19,12 @@
     <ClInclude Include="..\..\..\include\gigraph\AssetsFactory.h" />
     <ClInclude Include="..\..\..\include\gigraph\CompHelper.h" />
     <ClInclude Include="..\..\..\include\gigraph\Component.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\BRDF.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Camera.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Camera.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Draw.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Glass.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Light.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Light.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Material.h" />
@@ -33,6 +35,8 @@
     <ClInclude Include="..\..\..\include\gigraph\component\Mesh.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Scene.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Scene.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Shader.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\Shader.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Transform.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Transform.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\Evaluator.h" />
@@ -59,6 +63,7 @@
     <ClCompile Include="..\..\..\source\component\CompHelper.cpp" />
     <ClCompile Include="..\..\..\source\component\Mesh.cpp" />
     <ClCompile Include="..\..\..\source\component\Scene.cpp" />
+    <ClCompile Include="..\..\..\source\component\Shader.cpp" />
     <ClCompile Include="..\..\..\source\Evaluator.cpp" />
     <ClCompile Include="..\..\..\source\GIGraph.cpp" />
     <ClCompile Include="..\..\..\source\RegistRTTR.cpp" />

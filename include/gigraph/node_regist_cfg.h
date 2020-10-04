@@ -31,3 +31,19 @@
 #define PARM_NODE_TYPE Scene
 #define PARM_NODE_NAME scene
 #include EXE_FILEPATH
+
+#define PARM_NODE_TYPE Shader
+#define PARM_NODE_NAME shader
+#include EXE_FILEPATH
+
+// pathtrace
+
+#define NO_PARM_FILEPATH
+#define PARM_NODE_TYPE BRDF
+#define PARM_NODE_NAME brdf
+#include EXE_FILEPATH
+
+#define NO_PARM_FILEPATH
+#define PARM_NODE_TYPE Glass
+#define PARM_NODE_NAME glass
+#include EXE_FILEPATH

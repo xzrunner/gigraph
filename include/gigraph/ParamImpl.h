@@ -64,4 +64,19 @@ private:
 
 }; // TextureParam
 
+class ShaderParam : public Param
+{
+public:
+	ShaderParam(const std::string& str) : m_str(str) {}
+
+	virtual ParamType Type() const { return ParamType::Shader; }
+
+	auto GetShader() const { return m_str; }
+
+private:
+	std::string m_str;
+
+}; // ShaderParam
+
+
 }

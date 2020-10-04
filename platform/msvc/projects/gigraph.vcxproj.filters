@@ -28,20 +28,26 @@
     <Filter Include="tools\rtti">
       <UniqueIdentifier>{839e9b82-35ae-434c-8346-042bbd40b5c8}</UniqueIdentifier>
     </Filter>
-    <Filter Include="components\operator">
-      <UniqueIdentifier>{b7ac1770-317b-4821-bbe5-b4a5104246cd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="components\object">
-      <UniqueIdentifier>{7034dced-ad27-49ad-b647-a2e0db4f9325}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="components\render">
-      <UniqueIdentifier>{6e65eaaa-d6e9-4e18-847f-5a21cf06af46}</UniqueIdentifier>
-    </Filter>
     <Filter Include="components\tool">
       <UniqueIdentifier>{7d09c39e-675c-4948-b240-552c4e7473f7}</UniqueIdentifier>
     </Filter>
     <Filter Include="tools\eval">
       <UniqueIdentifier>{39366ab9-d7ec-47e8-8f4c-6508edaca9a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\pathtrace">
+      <UniqueIdentifier>{b9853a82-f148-49f5-b15a-82730e133c26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\pathtrace\material">
+      <UniqueIdentifier>{2e4fbbe2-27f9-48fb-94b7-d91efc28d183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\scene">
+      <UniqueIdentifier>{86c262a9-ab0f-4289-81a3-6c02a3041963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\scene\object">
+      <UniqueIdentifier>{7034dced-ad27-49ad-b647-a2e0db4f9325}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\scene\operator">
+      <UniqueIdentifier>{b7ac1770-317b-4821-bbe5-b4a5104246cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -84,52 +90,46 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\GIGraph.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Camera.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Camera.parm.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Light.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Light.parm.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Material.parm.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Material.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Mesh.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Mesh.parm.h">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Transform.h">
-      <Filter>components\operator</Filter>
+      <Filter>components\scene\operator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Transform.parm.h">
-      <Filter>components\operator</Filter>
+      <Filter>components\scene\operator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Merge.h">
-      <Filter>components\operator</Filter>
+      <Filter>components\scene\operator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Merge.parm.h">
-      <Filter>components\operator</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\gigraph\component\Draw.h">
-      <Filter>components\render</Filter>
+      <Filter>components\scene\operator</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Scene.parm.h">
       <Filter>components\tool</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Scene.h">
       <Filter>components\tool</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h">
-      <Filter>components\render</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\AssetsFactory.h">
       <Filter>tools</Filter>
@@ -142,6 +142,24 @@
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\RenderContext.h">
       <Filter>dataset</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Glass.h">
+      <Filter>components\pathtrace\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.h">
+      <Filter>components\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h">
+      <Filter>components\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Shader.h">
+      <Filter>components\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Shader.parm.h">
+      <Filter>components\tool</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\BRDF.h">
+      <Filter>components\pathtrace\material</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -165,7 +183,7 @@
     </ClCompile>
     <ClCompile Include="..\..\..\source\GIGraph.cpp" />
     <ClCompile Include="..\..\..\source\component\Mesh.cpp">
-      <Filter>components\object</Filter>
+      <Filter>components\scene\object</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\source\AssetsFactory.cpp">
       <Filter>tools</Filter>
@@ -178,6 +196,9 @@
     </ClCompile>
     <ClCompile Include="..\..\..\source\Evaluator.cpp">
       <Filter>tools\eval</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\component\Shader.cpp">
+      <Filter>components\tool</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

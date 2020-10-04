@@ -11,6 +11,7 @@ enum class ParamType
     Material,
 
     Texture,
+    Shader,
 };
 
 }
