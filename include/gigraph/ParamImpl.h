@@ -9,9 +9,24 @@
 #include <vector>
 
 namespace GLSLPT { class Mesh; }
+namespace ur { class ShaderProgram; }
 
 namespace gigraph
 {
+
+class StringParam : public Param
+{
+public:
+	StringParam(const std::string& str) : m_str(str) {}
+
+	virtual ParamType Type() const { return ParamType::String; }
+
+	auto GetString() const { return m_str; }
+
+private:
+	std::string m_str;
+
+}; // StringParam
 
 struct MateriailData
 {
@@ -67,16 +82,16 @@ private:
 class ShaderParam : public Param
 {
 public:
-	ShaderParam(const std::string& str) : m_str(str) {}
+	ShaderParam(const std::shared_ptr<ur::ShaderProgram>& prog) 
+		: m_prog(prog) {}
 
 	virtual ParamType Type() const { return ParamType::Shader; }
 
-	auto GetShader() const { return m_str; }
+	auto GetShader() const { return m_prog; }
 
 private:
-	std::string m_str;
+	std::shared_ptr<ur::ShaderProgram> m_prog = nullptr;
 
 }; // ShaderParam
-
 
 }

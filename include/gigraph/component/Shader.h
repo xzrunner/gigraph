@@ -2,6 +2,8 @@
 
 #include "gigraph/Component.h"
 
+namespace ur { class ShaderProgram; }
+
 namespace gigraph
 {
 namespace comp
@@ -10,18 +12,31 @@ namespace comp
 class Shader : public Component
 {
 public:
+	enum InputID
+	{
+		I_VS = 0,
+		I_FS,
+
+		I_MAX_NUM
+	};
+
+public:
     Shader()
 		: Component(1)
 	{
 		m_imports = {
-			{{ ParamType::Shader, "in" }},
+			{{ ParamType::String, "vs" }},
+			{{ ParamType::String, "fs" }},
 		};
 		m_exports = {
-			{{ ParamType::Shader, "out" }},
+			{{ ParamType::Shader, "shader" }},
 		};
 	}
 
 	virtual void Execute(const std::shared_ptr<dag::Context>& ctx = nullptr);
+
+private:
+	std::shared_ptr<ur::ShaderProgram> m_prog = nullptr;
 
 	RTTR_ENABLE(Component)
 

@@ -49,6 +49,12 @@
     <Filter Include="components\scene\operator">
       <UniqueIdentifier>{b7ac1770-317b-4821-bbe5-b4a5104246cd}</UniqueIdentifier>
     </Filter>
+    <Filter Include="components\pathtrace\main">
+      <UniqueIdentifier>{d2469728-9a06-4569-a5a1-520b3074160c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="components\render">
+      <UniqueIdentifier>{04996e24-b48b-416f-99ed-474d176531ea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\include\gigraph\Component.h">
@@ -143,23 +149,38 @@
     <ClInclude Include="..\..\..\include\gigraph\RenderContext.h">
       <Filter>dataset</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\gigraph\component\Glass.h">
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\BRDF.h">
       <Filter>components\pathtrace\material</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\gigraph\component\Draw.h">
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\Glass.h">
+      <Filter>components\pathtrace\material</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\PathTrace.h">
+      <Filter>components\pathtrace</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\Vertex.h">
+      <Filter>components\pathtrace\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\Progressive.h">
+      <Filter>components\pathtrace\main</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\String.h">
       <Filter>components\tool</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h">
+    <ClInclude Include="..\..\..\include\gigraph\component\String.parm.h">
       <Filter>components\tool</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Shader.h">
-      <Filter>components\tool</Filter>
+      <Filter>components\render</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\include\gigraph\component\Shader.parm.h">
-      <Filter>components\tool</Filter>
+      <Filter>components\render</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\include\gigraph\component\BRDF.h">
-      <Filter>components\pathtrace\material</Filter>
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.h">
+      <Filter>components\render</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h">
+      <Filter>components\render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -197,8 +218,14 @@
     <ClCompile Include="..\..\..\source\Evaluator.cpp">
       <Filter>tools\eval</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\source\component\Shader.cpp">
+    <ClCompile Include="..\..\..\source\component\String.cpp">
       <Filter>components\tool</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\component\Shader.cpp">
+      <Filter>components\render</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\source\component\Draw.cpp">
+      <Filter>components\render</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

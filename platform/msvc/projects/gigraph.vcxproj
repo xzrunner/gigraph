@@ -19,12 +19,10 @@
     <ClInclude Include="..\..\..\include\gigraph\AssetsFactory.h" />
     <ClInclude Include="..\..\..\include\gigraph\CompHelper.h" />
     <ClInclude Include="..\..\..\include\gigraph\Component.h" />
-    <ClInclude Include="..\..\..\include\gigraph\component\BRDF.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Camera.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Camera.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Draw.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h" />
-    <ClInclude Include="..\..\..\include\gigraph\component\Glass.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Light.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Light.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Material.h" />
@@ -33,10 +31,17 @@
     <ClInclude Include="..\..\..\include\gigraph\component\Merge.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Mesh.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Mesh.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\BRDF.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\Glass.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\PathTrace.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\Progressive.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\pathtrace\Vertex.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Scene.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Scene.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Shader.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Shader.parm.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\String.h" />
+    <ClInclude Include="..\..\..\include\gigraph\component\String.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Transform.h" />
     <ClInclude Include="..\..\..\include\gigraph\component\Transform.parm.h" />
     <ClInclude Include="..\..\..\include\gigraph\Evaluator.h" />
@@ -61,9 +66,11 @@
     <ClCompile Include="..\..\..\external\RadeonRays\split_bvh.cpp" />
     <ClCompile Include="..\..\..\source\AssetsFactory.cpp" />
     <ClCompile Include="..\..\..\source\component\CompHelper.cpp" />
+    <ClCompile Include="..\..\..\source\component\Draw.cpp" />
     <ClCompile Include="..\..\..\source\component\Mesh.cpp" />
     <ClCompile Include="..\..\..\source\component\Scene.cpp" />
     <ClCompile Include="..\..\..\source\component\Shader.cpp" />
+    <ClCompile Include="..\..\..\source\component\String.cpp" />
     <ClCompile Include="..\..\..\source\Evaluator.cpp" />
     <ClCompile Include="..\..\..\source\GIGraph.cpp" />
     <ClCompile Include="..\..\..\source\RegistRTTR.cpp" />
@@ -111,7 +118,7 @@
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <Optimization>Disabled</Optimization>
-      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\external;..\..\..\..\cu\src;..\..\..\..\sm\src\sm;..\..\..\..\dag\include;..\..\..\..\lexer\include;..\..\..\..\cslang\include;..\..\..\..\guard\include;..\..\..\..\cpputil\include;..\..\..\..\unirender\include;..\..\..\..\external\rttr\include;..\..\..\..\external\boost\include;..\..\..\..\external\tinyobjloader\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\external;..\..\..\..\cu\src;..\..\..\..\sm\src\sm;..\..\..\..\dag\include;..\..\..\..\lexer\include;..\..\..\..\cslang\include;..\..\..\..\guard\include;..\..\..\..\cpputil\include;..\..\..\..\unirender\include;..\..\..\..\shadertrans\include;..\..\..\..\external\rttr\include;..\..\..\..\external\boost\include;..\..\..\..\external\tinyobjloader\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <MinimalRebuild>true</MinimalRebuild>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -125,7 +132,7 @@
     <ClCompile>
       <Optimization>MaxSpeed</Optimization>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\external;..\..\..\..\cu\src;..\..\..\..\sm\src\sm;..\..\..\..\dag\include;..\..\..\..\lexer\include;..\..\..\..\cslang\include;..\..\..\..\guard\include;..\..\..\..\cpputil\include;..\..\..\..\unirender\include;..\..\..\..\external\rttr\include;..\..\..\..\external\boost\include;..\..\..\..\external\tinyobjloader\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\..\..\include;..\..\..\external;..\..\..\..\cu\src;..\..\..\..\sm\src\sm;..\..\..\..\dag\include;..\..\..\..\lexer\include;..\..\..\..\cslang\include;..\..\..\..\guard\include;..\..\..\..\cpputil\include;..\..\..\..\unirender\include;..\..\..\..\shadertrans\include;..\..\..\..\external\rttr\include;..\..\..\..\external\boost\include;..\..\..\..\external\tinyobjloader\include</AdditionalIncludeDirectories>
       <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <FunctionLevelLinking>true</FunctionLevelLinking>

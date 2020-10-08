@@ -1,18 +1,20 @@
 #pragma once
 
-#include "gigraph/component/Shader.h"
+#include "gigraph/component/String.h"
 
 namespace gigraph
 {
 namespace comp
 {
+namespace pathtrace
+{
 
-class Glass : public Shader
+class Glass : public String
 {
 public:
 	Glass()
 	{
-		SetShader(R"(
+		SetString(R"(
 
 float GlassPdf(Ray ray, inout State state)
 {
@@ -60,9 +62,10 @@ vec3 GlassEval(in Ray ray, inout State state)
 )");
 	}
 
-	RTTR_ENABLE(Shader)
+	RTTR_ENABLE(String)
 
 }; // Glass
 
+}
 }
 }

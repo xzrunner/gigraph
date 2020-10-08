@@ -7,6 +7,8 @@ enum class ParamType
 {
     Any,
 
+    String,
+
     Meshes,
     Material,
 

@@ -2,4 +2,5 @@
 #error "You must define PARAM_INFO macro before include this file"
 #endif
 
-PARAM_INFO(Shader, std::string, shader, m_shader, ())
+PARAM_INFO(Vert, std::string, vert, m_vert, ())
+PARAM_INFO(Frag, std::string, frag, m_frag, ())

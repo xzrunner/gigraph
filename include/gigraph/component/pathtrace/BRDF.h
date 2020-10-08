@@ -1,18 +1,20 @@
 #pragma once
 
-#include "gigraph/component/Shader.h"
+#include "gigraph/component/String.h"
 
 namespace gigraph
 {
 namespace comp
 {
+namespace pathtrace
+{
 
-class BRDF : public Shader
+class BRDF : public String
 {
 public:
 	BRDF()
 	{
-        SetShader(R"(
+        SetString(R"(
 
 float UE4Pdf(in Ray ray, inout State state, in vec3 bsdfDir)
 {
@@ -112,9 +114,10 @@ vec3 UE4Eval(in Ray ray, inout State state, in vec3 bsdfDir)
 )");
 	}
 
-	RTTR_ENABLE(Shader)
+	RTTR_ENABLE(String)
 
 }; // BRDF
 
+}
 }
 }
