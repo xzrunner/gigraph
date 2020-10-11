@@ -22,12 +22,16 @@ void Scene::Execute(const std::shared_ptr<dag::Context>& ctx)
         return;
     }
 
+    m_vals.resize(m_exports.size());
+
 	assert(param->Type() == ParamType::Meshes);
     BuildBVH(*std::static_pointer_cast<MultiMeshesParam>(param));
 
     auto rc = std::dynamic_pointer_cast<RenderContext>(ctx);
     assert(rc);
     BuildTextures(*rc);
+
+    m_vals[O_SCENE] = std::make_shared<SceneParam>(this);
 }
 
 void Scene::BuildBVH(const MultiMeshesParam& param)
@@ -122,21 +126,21 @@ void Scene::BuildBVH(const MultiMeshesParam& param)
 
 void Scene::BuildTextures(const RenderContext& rc)
 {
-    m_vals.resize(m_exports.size());
-
     ur::TextureDescription desc;
-    desc.width  = m_bvh_translator.nodeTexWidth;
-    desc.height = m_bvh_translator.nodeTexWidth;
     desc.sampler_type = ur::Device::TextureSamplerType::NearestClamp;
 
     // bvh texture
     desc.format = ur::TextureFormat::RGB32I;
+    desc.width  = m_bvh_translator.nodeTexWidth;
+    desc.height = m_bvh_translator.nodeTexWidth;
     m_vals[O_BVH] = std::make_shared<TextureParam>(
         rc.ur_dev->CreateTexture(desc, &m_bvh_translator.nodes[0])
     );
 
     // bbox
     desc.format = ur::TextureFormat::RGB32F;
+    desc.width  = m_bvh_translator.nodeTexWidth;
+    desc.height = m_bvh_translator.nodeTexWidth;
     m_vals[O_BBoxMin] = std::make_shared<TextureParam>(
         rc.ur_dev->CreateTexture(desc, &m_bvh_translator.bboxmin[0])
     );
@@ -146,18 +150,49 @@ void Scene::BuildTextures(const RenderContext& rc)
 
     // vertex indices
     desc.format = ur::TextureFormat::RGB32I;
+    desc.width  = m_indices_tex_width;
+    desc.height = m_indices_tex_width;
     m_vals[O_VertexIndices] = std::make_shared<TextureParam>(
         rc.ur_dev->CreateTexture(desc, &m_vert_indices[0])
     );
 
     // vertices + normals
     desc.format = ur::TextureFormat::RGBA32F;
+    desc.width  = m_tri_data_tex_width;
+    desc.height = m_tri_data_tex_width;
     m_vals[O_Vertices] = std::make_shared<TextureParam>(
         rc.ur_dev->CreateTexture(desc, &m_vertices_uvx[0])
     );
     m_vals[O_Normals]  = std::make_shared<TextureParam>(
         rc.ur_dev->CreateTexture(desc, &m_normals_uvy[0])
     );
+
+    // materials
+    desc.format = ur::TextureFormat::RGBA32F;
+    desc.width  = (sizeof(GLSLPT::Material) / sizeof(sm::vec4)) * m_materials.size();
+    desc.height = 1;
+    m_vals[O_Materials] = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_materials[0])
+    );
+
+    // transforms
+    desc.format = ur::TextureFormat::RGBA32F;
+    desc.width  = (sizeof(sm::mat4) / sizeof(sm::vec4)) * m_transforms.size();
+    desc.height = 1;
+    m_vals[O_Transforms] = std::make_shared<TextureParam>(
+        rc.ur_dev->CreateTexture(desc, &m_transforms[0])
+    );
+
+    // lights
+    if (!m_lights.empty())
+    {
+        desc.format = ur::TextureFormat::RGB32F;
+        desc.width  = (sizeof(Light) / sizeof(sm::vec3)) * m_lights.size();
+        desc.height = 1;
+        m_vals[O_Lights] = std::make_shared<TextureParam>(
+            rc.ur_dev->CreateTexture(desc, &m_transforms[0])
+        );
+    }
 }
 
 void Scene::CreateBLAS(const std::vector<std::shared_ptr<GLSLPT::Mesh>>& meshes)

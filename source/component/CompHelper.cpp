@@ -41,4 +41,23 @@ ParamPtr CompHelper::GetInputParam(const Component& comp, size_t idx)
     return std::static_pointer_cast<Component>(in_comp)->GetValue(conn.idx);
 }
 
+ParamPtr CompHelper::GetOutputParam(const Component& comp, size_t idx)
+{
+    auto& exports = comp.GetExports();
+    if (idx < 0 || idx >= exports.size()) {
+        return nullptr;
+    }
+
+    auto& conns = exports[idx].conns;
+    if (conns.empty()) {
+        return nullptr;
+    }
+
+    assert(exports[idx].conns.size() == 1);
+    auto& conn = exports[idx].conns[0];
+    auto in_comp = conn.node.lock();
+    assert(in_comp->get_type().is_derived_from<Component>());
+    return std::static_pointer_cast<Component>(in_comp)->GetValue(conn.idx);
+}
+
 }

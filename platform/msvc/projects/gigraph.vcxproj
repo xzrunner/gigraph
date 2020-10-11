@@ -11,6 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\external\PathTracer\Material.h" />
     <ClInclude Include="..\..\..\external\PathTracer\Mesh.h" />
     <ClInclude Include="..\..\..\external\RadeonRays\bbox.h" />
     <ClInclude Include="..\..\..\external\RadeonRays\bvh.h" />

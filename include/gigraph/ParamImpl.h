@@ -14,6 +14,8 @@ namespace ur { class ShaderProgram; }
 namespace gigraph
 {
 
+namespace comp { class Scene; }
+
 class StringParam : public Param
 {
 public:
@@ -93,5 +95,20 @@ private:
 	std::shared_ptr<ur::ShaderProgram> m_prog = nullptr;
 
 }; // ShaderParam
+
+class SceneParam : public Param
+{
+public:
+	SceneParam(const comp::Scene* scene)
+		: m_scene(scene) {}
+
+	virtual ParamType Type() const { return ParamType::Scene; }
+
+	auto GetScene() const { return m_scene; }
+
+private:
+	const comp::Scene* m_scene = nullptr;
+
+}; // SceneParam
 
 }

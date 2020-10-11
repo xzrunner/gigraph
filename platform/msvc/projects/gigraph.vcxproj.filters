@@ -182,6 +182,9 @@
     <ClInclude Include="..\..\..\include\gigraph\component\Draw.parm.h">
       <Filter>components\render</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\external\PathTracer\Material.h">
+      <Filter>external\PathTracer</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\external\RadeonRays\bbox.cpp">
