@@ -38,6 +38,8 @@ public:
 private:
 	std::shared_ptr<ur::ShaderProgram> m_prog = nullptr;
 
+	std::string m_vs_cached, m_fs_cached;
+
 	RTTR_ENABLE(Component)
 
 #define PARM_FILEPATH "gigraph/component/Shader.parm.h"

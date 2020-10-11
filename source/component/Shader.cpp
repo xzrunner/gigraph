@@ -32,9 +32,12 @@ void Shader::Execute(const std::shared_ptr<dag::Context>& ctx)
         m_frag.append(frag);
     }
 
-    if (m_prog || vert.empty() || frag.empty()) {
+    if (vert.empty() || frag.empty() ||
+        vert == m_vs_cached && frag == m_fs_cached) {
         return;
     }
+    m_vs_cached = vert;
+    m_fs_cached = frag;
 
     // header
     std::string header = R"(#version 310 es
